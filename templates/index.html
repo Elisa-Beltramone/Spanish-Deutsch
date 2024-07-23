@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="exercise">
+    <h1 class="practice">Usful Words</h1>
+    <div id="time">Time: 0</div>
+    <div id="score">Score: 0</div>
+    <div class="column" id="text">
+        <div class="names" id="germanWords">German<p class="germanP"></p></div>
+        <div class="names" id="spanishWords">Spanish<p class="spanishP"></p></div>
+    </div>
+    <button id="play" onclick="showWords()">Play</button>
+    <div id="restart"></div>
+</div>
+{% endblock %}
