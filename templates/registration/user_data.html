@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Welcome! Here is your progress: </h2>
+    <ul>
+
+{% for game in all_games %}
+
+    <li>{{ game.player.all }}</li>
+
+{% endfor %}
+</ul>
+
+<h2>Add Game to Database</h2>
+
+<form action="" method=POST>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+<input type="submit" value="Submit" class="button">
+
+</form>
+
+{% endblock %}

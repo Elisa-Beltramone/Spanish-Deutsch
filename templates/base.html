@@ -14,12 +14,12 @@
         <h2><a href="{% url 'index' %}">Home</a></h2>
         {% if user.is_authenticated %}
         <p>Hello, {{ user.username }}!</p>
+        <a href="{% url 'personal_data' %}">My records</a>
         <a href="{% url 'logout' %}">Logout</a>
         {% else %}
-        <li><a href="{% url 'register_user' %}">Register</a></li>
         <li><a href="{% url 'login' %}">Login</a></li>
-
         {% endif %}
+        {{ now }}
     </nav>
     <div class="container">
         {% block content %}

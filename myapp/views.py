@@ -1,21 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
+from datetime import datetime
+from .models import Game
+from .forms import GameForm
 
 def index(request):
     form = UserCreationForm()
-    return render(request, 'index.html', {'form':form})
+    now = datetime.now().date
+    return render(request, 'index.html', {'form':form, 'now':now})
 
-# def logout_user(request):
-#     logout(request)
-#     messages.success(request, ("You logged out"))
-#     return redirect('home')
-
-def login_user(request):
-    return render(request, 'registration/register_user.html', {})
-
-def logout_user(request):
-    return redirect('index')
-
-def register_user(request):
-    
-    return render(request, 'registration/register_user.html', {})
+def personal_data(request):
+     all_games = Game.objects.all()
+     form = GameForm
+     return render(request, 'registration/user_data.html', {'all_games': all_games, 'form': form})
